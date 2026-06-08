@@ -264,13 +264,44 @@ document.addEventListener('DOMContentLoaded', () => {
     modalConfirmForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
-        // Mock processing spinner simulation
         const confirmBtn = document.getElementById('btn-final-confirm');
         const originalText = confirmBtn.textContent;
         confirmBtn.disabled = true;
-        confirmBtn.textContent = 'PROCESSING RESERVATION...';
-        
-        setTimeout(() => {
+        confirmBtn.textContent = 'SENDING CONFIRMATION...';
+
+        const nameVal = document.getElementById('modal-name').value;
+        const emailVal = document.getElementById('modal-email').value;
+        const phoneVal = document.getElementById('modal-phone').value;
+        const suiteVal = modalSuiteName.textContent;
+        const rateVal = modalSuitePrice.textContent;
+        const checkinVal = modalCheckin.textContent;
+        const checkoutVal = modalCheckout.textContent;
+        const nightsVal = modalNights.textContent;
+        const guestsVal = modalGuests.textContent;
+        const totalVal = modalTotalPrice.textContent;
+
+        // Send booking details via FormSubmit AJAX to support@samsmith.com
+        fetch("https://formsubmit.co/ajax/support@samsmith.com", {
+            method: "POST",
+            headers: { 
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({
+                "Customer Name": nameVal,
+                "Customer Email": emailVal,
+                "Customer Phone": phoneVal,
+                "Suite Category": suiteVal,
+                "Nightly Rate": rateVal,
+                "Check-In Date": checkinVal,
+                "Check-Out Date": checkoutVal,
+                "Total Nights": nightsVal,
+                "Guest Count": guestsVal,
+                "Total Booking Cost": totalVal,
+                "_subject": `New Booking Alert - ${suiteVal} by ${nameVal}`
+            })
+        })
+        .then(() => {
             confirmBtn.disabled = false;
             confirmBtn.textContent = originalText;
             
@@ -280,7 +311,16 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Show custom toast notification
             showToast();
-        }, 1500);
+        })
+        .catch(error => {
+            console.error("Error sending booking email:", error);
+            // Fallback: Proceed even if AJAX fails, so the user experience is not blocked
+            confirmBtn.disabled = false;
+            confirmBtn.textContent = originalText;
+            modalConfirmForm.reset();
+            closeModal(bookingModal);
+            showToast();
+        });
     });
 
     // --- Toast Handler ---
