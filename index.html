@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Welcome to Sam Smith. Experience world-class luxury, stunning cliffside views, and premium seaside accommodations. Book your stay today.">
+    <title>Sam Smith | Luxury Cliffside Seaside Resort</title>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons for premium look -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Top Progress Indicator for Scroll -->
+    <div id="scroll-progress" class="scroll-progress"></div>
+
+    <!-- Header Navigation -->
+    <header class="main-header" id="main-header">
+        <div class="header-container">
+            <a href="#" class="logo" id="header-logo">
+                <img src="logo1.png" alt="Sam Smith Logo" class="logo-image">
+            </a>
+            
+            <nav class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link active" id="nav-link-home">HOME</a>
+                <a href="#rooms" class="nav-link" id="nav-link-rooms">ROOMS</a>
+                <a href="#offers" class="nav-link highlight" id="nav-link-offers">SPECIAL OFFERS</a>
+                <a href="#blog" class="nav-link" id="nav-link-blog">BLOG</a>
+                <a href="#contact" class="nav-link" id="nav-link-contact">CONTACT</a>
+            </nav>
+
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <!-- Modern background containers for slideshow -->
+        <div class="hero-bg active" style="background-image: url('background_sunset_cliffs.png');"></div>
+        <div class="hero-bg" style="background-image: url('background2.png');"></div>
+        <div class="hero-bg" style="background-image: url('background3.png');"></div>
+        
+        <!-- Ambient glowing spots & floating particles -->
+        <div class="hero-light-glow"></div>
+        <div class="floating-particle p1"></div>
+        <div class="floating-particle p2"></div>
+        <div class="floating-particle p3"></div>
+        
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content">
+            <div class="welcome-badge">
+                <i class="fas fa-crown"></i>
+                <span>WELCOME TO</span>
+            </div>
+            <h1 class="hero-title">SAM SMITH</h1>
+            <div class="title-divider"></div>
+            <p class="hero-description">
+                Experience the perfect blend of modern luxury and timeless coastal beauty. Nestled by dramatic cliffs overlooking the serene turquoise sea, Sam Smith is your exclusive haven.
+            </p>
+            <div class="hero-actions">
+                <a href="#rooms" class="btn btn-secondary btn-scroll" id="btn-explore">
+                    <span>EXPLORE SUITES</span> <i class="fas fa-chevron-right btn-icon"></i>
+                </a>
+                <button class="btn btn-primary" id="btn-read-more">
+                    <span>READ MORE</span> <i class="fas fa-info-circle btn-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Scroll Down Mouse Indicator -->
+        <div class="scroll-indicator" id="scroll-indicator">
+            <div class="mouse-icon">
+                <span class="wheel"></span>
+            </div>
+            <div class="scroll-arrows">
+                <span class="arrow-down"></span>
+            </div>
+        </div>
+
+        <!-- Booking Widget Panel -->
+        <div class="booking-widget-container">
+            <form class="booking-form" id="booking-form">
+                <div class="booking-field">
+                    <div class="field-label-group">
+                        <i class="fas fa-bed field-icon"></i>
+                        <label for="booking-room">ROOM</label>
+                    </div>
+                    <div class="select-wrapper">
+                        <select id="booking-room" required>
+                            <option value="classic">CLASSIC ROOM - ₦25,000/Night</option>
+                            <option value="deluxe" selected>DELUXE SUITE - ₦25,000/Night</option>
+                            <option value="presidential">PRESIDENTIAL SUITE - ₦25,000/Night</option>
+                        </select>
+                        <i class="fas fa-chevron-down select-icon"></i>
+                    </div>
+                </div>
+                
+                <div class="booking-field">
+                    <div class="field-label-group">
+                        <i class="fas fa-calendar-alt field-icon"></i>
+                        <label for="booking-checkin">CHECK IN</label>
+                    </div>
+                    <input type="date" id="booking-checkin" required>
+                </div>
+                
+                <div class="booking-field">
+                    <div class="field-label-group">
+                        <i class="fas fa-calendar-check field-icon"></i>
+                        <label for="booking-checkout">CHECK OUT</label>
+                    </div>
+                    <input type="date" id="booking-checkout" required>
+                </div>
+                
+                <div class="booking-field">
+                    <div class="field-label-group">
+                        <i class="fas fa-users field-icon"></i>
+                        <label for="booking-guests">GUESTS</label>
+                    </div>
+                    <div class="select-wrapper">
+                        <select id="booking-guests" required>
+                            <option value="1">1 ADULT</option>
+                            <option value="2" selected>2 ADULTS</option>
+                            <option value="3">3 ADULTS</option>
+                            <option value="4">4 ADULTS</option>
+                        </select>
+                        <i class="fas fa-chevron-down select-icon"></i>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn-book-now" id="btn-book-now">
+                    <span>BOOK NOW</span>
+                    <i class="fas fa-paper-plane book-btn-icon"></i>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Luxury Rooms Section -->
+    <section class="rooms-section" id="rooms">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">ACCOMMODATIONS</span>
+                <h2 class="section-title">Our Luxury Rooms & Suites</h2>
+                <div class="section-underline"></div>
+            </div>
+
+            <div class="rooms-grid">
+                <!-- Room 1 -->
+                <div class="room-card" id="room-card-classic">
+                    <div class="room-image-wrapper">
+                        <div class="room-price">₦25,000<span>/ night</span></div>
+                        <div class="room-overlay-info">
+                            <h3>Classic Room</h3>
+                            <p>Elegant design meeting absolute comfort. Partial ocean view, king bed.</p>
+                        </div>
+                    </div>
+                    <div class="room-details">
+                        <h3 class="room-title">Classic Ocean-View Room</h3>
+                        <p class="room-desc">Enjoy serene side-views of the sea from your private balcony, equipped with a luxurious king size bed, custom marble bathroom, and curated local amenities.</p>
+                        <ul class="room-features">
+                            <li><i class="fas fa-expand"></i> 45 m²</li>
+                            <li><i class="fas fa-bed"></i> King Bed</li>
+                            <li><i class="fas fa-wifi"></i> Free Wi-Fi</li>
+                            <li><i class="fas fa-beer"></i> Mini Bar</li>
+                        </ul>
+                        <button class="btn btn-card-book" data-room="classic">Select Room</button>
+                    </div>
+                </div>
+
+                <!-- Room 2 -->
+                <div class="room-card featured" id="room-card-deluxe">
+                    <div class="room-image-wrapper">
+                        <span class="badge-featured">Popular</span>
+                        <div class="room-price">₦25,000<span>/ night</span></div>
+                        <div class="room-overlay-info">
+                            <h3>Deluxe Suite</h3>
+                            <p>Stunning front sunset ocean views, private jacuzzi on balcony.</p>
+                        </div>
+                    </div>
+                    <div class="room-details">
+                        <h3 class="room-title">Deluxe Sunset Cliffside Suite</h3>
+                        <p class="room-desc">Perched directly over the cliffs, experience breathtaking panoramic views of the ocean. Features a spacious living area, outdoor private hot tub, and personalized butler service.</p>
+                        <ul class="room-features">
+                            <li><i class="fas fa-expand"></i> 85 m²</li>
+                            <li><i class="fas fa-bed"></i> King Bed + Sofa</li>
+                            <li><i class="fas fa-wifi"></i> High Speed Wi-Fi</li>
+                            <li><i class="fas fa-hot-tub"></i> Private Jacuzzi</li>
+                        </ul>
+                        <button class="btn btn-card-book" data-room="deluxe">Select Room</button>
+                    </div>
+                </div>
+
+                <!-- Room 3 -->
+                <div class="room-card" id="room-card-presidential">
+                    <div class="room-image-wrapper">
+                        <div class="room-price">₦25,000<span>/ night</span></div>
+                        <div class="room-overlay-info">
+                            <h3>Presidential Suite</h3>
+                            <p>Ultimate luxury. Penthouse level, infinity plunge pool, private chef.</p>
+                        </div>
+                    </div>
+                    <div class="room-details">
+                        <h3 class="room-title">Sam Smith Presidential Suite</h3>
+                        <p class="room-desc">The crown jewel of our resort. Multi-room penthouse layout, floor-to-ceiling glass walls, a private infinity pool jutting over the cliff, and elite VIP access.</p>
+                        <ul class="room-features">
+                            <li><i class="fas fa-expand"></i> 180 m²</li>
+                            <li><i class="fas fa-bed"></i> 2 King Beds</li>
+                            <li><i class="fas fa-swimming-pool"></i> Infinity Pool</li>
+                            <li><i class="fas fa-concierge-bell"></i> 24/7 Chef Service</li>
+                        </ul>
+                        <button class="btn btn-card-book" data-room="presidential">Select Room</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Offers Section -->
+    <section class="offers-section" id="offers">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">PROMOTIONS</span>
+                <h2 class="section-title">Special Packages & Offers</h2>
+                <div class="section-underline"></div>
+            </div>
+
+            <div class="offers-grid">
+                <!-- Offer 1 -->
+                <div class="offer-card" id="offer-spa">
+                    <div class="offer-icon"><i class="fas fa-spa"></i></div>
+                    <h3>Seaside Wellness Retreat</h3>
+                    <p>Book a Deluxe Suite for 3+ nights and receive a complimentary couples spa package and customized massage overlooking the cliffs.</p>
+                    <span class="offer-valid">Valid until June 30, 2026</span>
+                </div>
+                <!-- Offer 2 -->
+                <div class="offer-card featured-offer" id="offer-dining">
+                    <div class="offer-icon"><i class="fas fa-utensils"></i></div>
+                    <h3>Fine Dining Under the Stars</h3>
+                    <p>Upgrade your booking to full board and experience a private candlelight dinner menu prepared by our Michelin-starred chef on the beach.</p>
+                    <span class="offer-valid">Limited Availability</span>
+                </div>
+                <!-- Offer 3 -->
+                <div class="offer-card" id="offer-early">
+                    <div class="offer-icon"><i class="fas fa-plane"></i></div>
+                    <h3>Early Bird Summer Escape</h3>
+                    <p>Plan your summer getaway at least 60 days in advance and save 20% on any room or suite category. Breakfast included.</p>
+                    <span class="offer-valid">Promo Code: EARLY20</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog / Editorial Section -->
+    <section class="blog-section" id="blog">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">OUR JOURNAL</span>
+                <h2 class="section-title">Discover the Cliffside Lifestyle</h2>
+                <div class="section-underline"></div>
+            </div>
+
+            <div class="blog-grid">
+                <article class="blog-post" id="blog-post-1">
+                    <div class="blog-image-placeholder"><i class="fas fa-camera"></i></div>
+                    <div class="blog-content">
+                        <span class="blog-date">June 5, 2026 | Lifestyle</span>
+                        <h3>Top Secret Spots Along the Coast</h3>
+                        <p>Explore hidden coves, pristine beaches, and historical pathways located just steps from Sam Smith...</p>
+                        <a href="#" class="blog-readmore">Read Article <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <article class="blog-post" id="blog-post-2">
+                    <div class="blog-image-placeholder"><i class="fas fa-wine-glass-alt"></i></div>
+                    <div class="blog-content">
+                        <span class="blog-date">May 28, 2026 | Culinary</span>
+                        <h3>Wine Pairing Nights: Summer Edition</h3>
+                        <p>Our head sommelier shares insights into pairing coastal whites and rich reds with local Mediterranean seafood...</p>
+                        <a href="#" class="blog-readmore">Read Article <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Feedback Section -->
+    <section class="contact-section" id="contact">
+        <div class="section-container">
+            <div class="contact-box">
+                <div class="contact-info">
+                    <h2>Get in Touch</h2>
+                    <p>Have questions about your upcoming stay or need help booking your room? Contact our concierge team anytime.</p>
+                    <ul class="contact-details-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>12 Hilal Crescent, GRA, Ilorin</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>07078266759</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>support@samsmith.com</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="contact-name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="contact-email" placeholder="Your Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="contact-message" placeholder="How can we assist you?" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+                    </form>
+                    <div id="contact-success" class="contact-success-msg">
+                        <i class="fas fa-check-circle"></i> Message sent successfully! Our concierge will respond shortly.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <p>&copy; 2026 Sam Smith. All rights reserved. Built with luxury and sophistication.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Careers</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Booking Confirmation Modal -->
+    <div class="modal-overlay" id="booking-modal">
+        <div class="modal-card">
+            <button class="modal-close" id="booking-modal-close" aria-label="Close Modal">&times;</button>
+            <div class="modal-header">
+                <i class="fas fa-concierge-bell modal-bell"></i>
+                <h2>Confirm Your Reservation</h2>
+                <p>Verify your details to finalize your luxury getaway</p>
+            </div>
+            <div class="modal-body">
+                <div class="summary-details">
+                    <div class="summary-row">
+                        <span class="summary-label">Selected Suite:</span>
+                        <span class="summary-value" id="modal-suite-name">Deluxe Sunset Suite</span>
+                    </div>
+                    <div class="summary-row">
+                        <span class="summary-label">Rate:</span>
+                        <span class="summary-value" id="modal-suite-price">₦25,000 / Night</span>
+                    </div>
+                    <div class="summary-row">
+                        <span class="summary-label">Check-In Date:</span>
+                        <span class="summary-value" id="modal-checkin">03/10/2026</span>
+                    </div>
+                    <div class="summary-row">
+                        <span class="summary-label">Check-Out Date:</span>
+                        <span class="summary-value" id="modal-checkout">03/17/2026</span>
+                    </div>
+                    <div class="summary-row">
+                        <span class="summary-label">Total Nights:</span>
+                        <span class="summary-value" id="modal-nights">7 Nights</span>
+                    </div>
+                    <div class="summary-row">
+                        <span class="summary-label">Guests:</span>
+                        <span class="summary-value" id="modal-guests">2 Adults</span>
+                    </div>
+                    <div class="summary-divider"></div>
+                    <div class="summary-row total-row">
+                        <span class="summary-label">Total Cost:</span>
+                        <span class="summary-value highlight-price" id="modal-total-price">₦25,000</span>
+                    </div>
+                </div>
+
+                <form class="modal-confirm-form" id="modal-confirm-form">
+                    <div class="form-row">
+                        <input type="text" placeholder="Full Name" required id="modal-name">
+                        <input type="email" placeholder="Email Address" required id="modal-email">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block" id="btn-final-confirm">CONFIRM BOOKING</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Info Modal (Read More) -->
+    <div class="modal-overlay" id="info-modal">
+        <div class="modal-card info-card">
+            <button class="modal-close" id="info-modal-close" aria-label="Close Modal">&times;</button>
+            <div class="modal-header">
+                <h2>Welcome to Sam Smith Experience</h2>
+                <div class="title-divider"></div>
+            </div>
+            <div class="modal-body text-content">
+                <p>Located on the stunning coast of Golden Bay, Sam Smith is designed to integrate seamlessly with the natural landscape. Built high upon the stone cliffs, our suites offer panoramic views of the water, custom architectural highlights, and absolute privacy.</p>
+                <p>Each of our rooms incorporates state-of-the-art climate control, automated smart amenities, custom bedding designed by Rasmus Andersson, and organic Mediterranean spa toiletries. Our services include:
+                <ul>
+                    <li>24/7 dedicated private butler service for suites</li>
+                    <li>Michelin-starred restaurant dining and oceanfront wine bars</li>
+                    <li>Infinity cliffside swimming pools and direct private beach access</li>
+                    <li>Daily luxury yacht excursions and sightseeing charters</li>
+                </ul>
+                <p>We are dedicated to providing an unforgettable, premium experience that redefines coastal luxury. We look forward to hosting your dream retreat.</p>
+                <button class="btn btn-secondary" id="btn-info-close">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Final success toast notification -->
+    <div class="toast" id="success-toast">
+        <i class="fas fa-check-circle"></i>
+        <div>
+            <strong>Booking Confirmed!</strong>
+            <p>Your confirmation email is on its way.</p>
+        </div>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="app.js"></script>
+</body>
+</html>
