@@ -6,6 +6,10 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    // --- Web3Forms Configuration ---
+    // Get your Access Key from https://web3forms.com/ and paste it below
+    const WEB3FORMS_ACCESS_KEY = "578e490f-1986-4d8e-a92e-f0c9d564ad54";
+
     // --- DOM Elements ---
     const mainHeader = document.getElementById('main-header');
     const scrollProgress = document.getElementById('scroll-progress');
@@ -280,14 +284,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const guestsVal = modalGuests.textContent;
         const totalVal = modalTotalPrice.textContent;
 
-        // Send booking details via FormSubmit AJAX to support@samsmith.com
-        fetch("https://formsubmit.co/ajax/support@samsmith.com", {
+        // Send booking details via Web3Forms AJAX
+        fetch("https://api.web3forms.com/submit", {
             method: "POST",
             headers: { 
                 "Content-Type": "application/json",
                 "Accept": "application/json"
             },
             body: JSON.stringify({
+                access_key: WEB3FORMS_ACCESS_KEY,
+                subject: `New Booking Alert - ${suiteVal} by ${nameVal}`,
+                from_name: "Sam Smith Hotel Booking",
                 "Customer Name": nameVal,
                 "Customer Email": emailVal,
                 "Customer Phone": phoneVal,
@@ -297,8 +304,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Check-Out Date": checkoutVal,
                 "Total Nights": nightsVal,
                 "Guest Count": guestsVal,
-                "Total Booking Cost": totalVal,
-                "_subject": `New Booking Alert - ${suiteVal} by ${nameVal}`
+                "Total Booking Cost": totalVal
             })
         })
         .then(() => {
@@ -339,8 +345,28 @@ document.addEventListener('DOMContentLoaded', () => {
         const originalText = submitBtn.textContent;
         submitBtn.disabled = true;
         submitBtn.textContent = 'SENDING...';
+
+        const nameVal = document.getElementById('contact-name').value;
+        const emailVal = document.getElementById('contact-email').value;
+        const messageVal = document.getElementById('contact-message').value;
         
-        setTimeout(() => {
+        // Send contact message details via Web3Forms AJAX
+        fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            headers: { 
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({
+                access_key: WEB3FORMS_ACCESS_KEY,
+                subject: `New Contact Message from ${nameVal}`,
+                from_name: "Sam Smith Hotel Contact Form",
+                "Sender Name": nameVal,
+                "Sender Email": emailVal,
+                "Message": messageVal
+            })
+        })
+        .then(() => {
             submitBtn.disabled = false;
             submitBtn.textContent = originalText;
             
@@ -350,6 +376,16 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 contactSuccess.style.display = 'none';
             }, 5000);
-        }, 1000);
+        })
+        .catch(error => {
+            console.error("Error sending contact email:", error);
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+            contactForm.reset();
+            contactSuccess.style.display = 'flex';
+            setTimeout(() => {
+                contactSuccess.style.display = 'none';
+            }, 5000);
+        });
     });
 });
