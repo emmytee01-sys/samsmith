@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Web3Forms Configuration ---
     // Get your Access Key from https://web3forms.com/ and paste it below
-    const WEB3FORMS_ACCESS_KEY = "578e490f-1986-4d8e-a92e-f0c9d564ad54";
+    const WEB3FORMS_ACCESS_KEY = "a6a4f2a3-fda8-4f39-b0fa-068ab9fb9a86";
 
     // --- DOM Elements ---
     const mainHeader = document.getElementById('main-header');
